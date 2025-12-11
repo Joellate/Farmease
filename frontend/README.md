@@ -1,4 +1,4 @@
-git clone https://github.com/YOUR-USERNAME/FarmEasee.git
+git clone https://github.com/Joellate/FarmEasee.git
 # FarmEase — Frontend Setup & Project Overview
 
 This README consolidates frontend setup instructions and project notes for the FarmEase client.
@@ -79,3 +79,72 @@ Author
 
 License
 - MIT
+ 
+---
+
+## Description
+
+The Frontend is a React (Vite) single-page app for the Farmease project. It provides the marketplace UI where buyers browse crop listings and farmers create and manage their listings. The client talks to a Node/Express backend API at `/api`.
+
+This README contains the minimal steps to get the frontend running locally and notes about the API and database requirements.
+
+## Prerequisites
+
+- Node.js v16+ and npm
+- A running backend API (default: `http://localhost:4000/api`)
+
+## Local setup (frontend)
+
+1. Install dependencies
+
+```powershell
+cd .\frontend\
+npm install
+```
+
+2. Configure API base URL (optional)
+
+- By default the client uses `http://localhost:4000/api` as the API base URL (see `src/api/client.js`).
+- To override, create a `.env` file in `frontend/` and add:
+
+```
+VITE_API_BASE_URL=http://localhost:4000/api
+```
+
+3. Start the dev server
+
+```powershell
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+## Notes about the API and database
+
+- The frontend expects the backend to expose the following endpoints (default base `/api`):
+  - `POST /auth/signup` — create account (farmers can include `phone`)
+  - `POST /auth/login` — login, returns `token` and `user`
+  - `GET /crops` — list crops (includes farmer `phone`)
+  - `POST /crops` — create crop (authenticated)
+  - `GET /users/me` and `PUT /users/me` — get/update profile (phone)
+
+- Make sure the database `users` table has a `phone` column (text) if you want farmers to save contact numbers. Example migration:
+
+```sql
+ALTER TABLE IF EXISTS "FarmEase".users
+  ADD COLUMN IF NOT EXISTS phone text;
+```
+
+## Troubleshooting
+
+- CORS errors: ensure backend allows `http://localhost:5173` in CORS.
+- API errors: restart the backend and check its logs. If `crops` creation fails with UUID vs bigint errors, align the `crops.user_id` type with `users.id`.
+
+## Commands summary
+
+- Install: `npm install`
+- Dev: `npm run dev`
+- Build: `npm run build`
+- Preview: `npm run preview`
+
+If you want this README copied to the repo root or expanded with deployment instructions, say so and I will update it.
