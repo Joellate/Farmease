@@ -1,0 +1,265 @@
+/* Registration Page Styles */
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-card .page-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+.auth-card .page-subtitle {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #212529;
+  font-size: 0.95rem;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* User Type Selector */
+.user-type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.radio-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px solid #dee2e6;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.radio-option input[type="radio"] {
+  margin-bottom: 0.5rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-desc {
+  color: #667eea;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+  border-color: #667eea;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.radio-option:hover {
+  border-color: #667eea;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.radio-label {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.radio-desc {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #667eea;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Error and Text */
+.text-error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0.75rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 0.5rem;
+}
+
+.auth-footnote {
+  text-align: center;
+  color: #6c757d;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}
+
+/* Test Credentials */
+.test-credentials {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f0f4ff;
+  border-left: 4px solid #667eea;
+  border-radius: 0.5rem;
+}
+
+.test-credentials h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #667eea;
+}
+
+.credentials-group {
+  margin-bottom: 1rem;
+}
+
+.credentials-group:last-child {
+  margin-bottom: 0;
+}
+
+.credentials-group h4 {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #495057;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.credential-item {
+  padding: 0.5rem 0;
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.credential-item strong {
+  color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 2rem;
+  }
+
+  .auth-card .page-title {
+    font-size: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .user-type-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-option {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .radio-option input[type="radio"] {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+}
