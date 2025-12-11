@@ -1,4 +1,4 @@
-git clone https://github.com/Joellate/FarmEasee.git
+git clone https://github.com/Joellate/FarmEase.git
 # FarmEase — Frontend Setup & Project Overview
 
 This README consolidates frontend setup instructions and project notes for the FarmEase client.
